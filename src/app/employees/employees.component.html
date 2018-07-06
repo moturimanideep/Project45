@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row" >
+    <div col-md-offset-3 col-md-6>
+      <mat-card *ngFor='let employee of employees'>
+        <mat-list >
+          <mat-list-item [ngStyle]="{'color': employee.eid == 10021 ? 'green': 'black'} ">{{employee.ename}}</mat-list-item>
+          <mat-list-item [ngClass]="{'text-success': employee.eid == 10021 ? true: false, 'text-primary': employee.eid == 10022 ? true: false }">{{employee.eid}}</mat-list-item>
+          <mat-list-item>{{employee.edesignation}}</mat-list-item>
+          <mat-list-item>{{employee.esalary}}</mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+      
+      </mat-card>
+    </div>
+  </div>
+</div>

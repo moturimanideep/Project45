@@ -1,0 +1,30 @@
+<div class="container">
+  
+      <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+              
+            <!-- <h1>Profile Details</h1>
+            <h3>Name: {{user.name}}</h3>
+            <h3>Email: {{user.email}}</h3>
+            <h3>Mobile No: {{user.mobile}}</h3>
+            <h3>Education: {{user.education}}</h3> -->
+            <button mat-raised-button (click)='showorhideuser()'	>Show/Hide User</button>
+            <mat-card *ngIf='userStatus else nouser'>
+            <h1>Profile Details</h1>
+            <img [src]='user.imgSrc' [alt]='user.altText' width='180px' height='200px'>
+            <h3 >Name:  <span [textContent]='user.name'></span></h3>
+            <h3>Email: {{user.email}}</h3>
+            <h3>Mobile No: {{user.mobile}}</h3>
+            <h3>Education: {{user.education}}</h3>
+            <button mat-raised-button (click)='addUser(user)'	>Pass Data to TS</button>
+
+            
+          </mat-card>
+
+            <mat-card>
+                <ng-template #nouser>User Data has been hidden.</ng-template>
+            </mat-card>
+          </div>
+        </div>
+  
+</div>
