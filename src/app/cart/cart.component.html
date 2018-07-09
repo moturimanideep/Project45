@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+<div class="row" *ngFor='let product of cartProducts'>
+  
+    <div class="col-md-3">
+      <img [src]='product.imageSrc'>
+    </div>
+    <div class="col-md-6">
+      <h2 [textContent]='product.name'></h2>
+      <mat-list>
+        <mat-list-item role="listitem">{{product.description.ram}}</mat-list-item>
+        <mat-list-item role="listitem">{{product.description.display}}</mat-list-item>
+        <mat-list-item role="listitem">{{product.description.camera}}</mat-list-item>
+        <mat-list-item role="listitem">{{product.description.battery}}</mat-list-item>
+        <mat-list-item role="listitem">{{product.description.processor}}</mat-list-item>
+        <mat-list-item role="listitem">{{product.description.warranty}}</mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-md-3">
+      <h2>{{product.price}}</h2>
+     
+    </div>
+    <mat-divider></mat-divider>
+</div>
+</mat-card>
+</div>

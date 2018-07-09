@@ -1,0 +1,16 @@
+<h2>Selected Customer</h2>
+<div class="row" *ngIf='selectedCustomer'>
+        <mat-card>
+        <ul>
+          <li style="font-size: 20px; ">Name: <span style="color: green;">{{selectedCustomer.customername}}</span></li>
+          <li style="font-size: 20px; ">Id: <span style="color: green;">{{selectedCustomer.customerid}}</span></li>
+          <li style="font-size: 20px; ">Product: <span style="color: green;">{{selectedCustomer.customerproduct}}</span></li>
+          
+        </ul>
+      </mat-card>
+</div>
+<h2>Customer Details</h2>
+<mat-divider></mat-divider>
+<app-customer-details *ngFor='let customer of customers' [name]='customer.cname' [id]='customer.cid' [product]='customer.cproduct' (sendRecord)='getRecord($event)'></app-customer-details>
+
+

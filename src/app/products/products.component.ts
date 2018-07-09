@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonService } from '../common.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  cartProducts: any[] = [];
   products: any = [
     {
       imageSrc: 'https://rukminim1.flixcart.com/image/312/312/j1qqs280/mobile/m/7/d/samsung-galaxy-on-nxt-sm-g610fzdhins-original-imaet97hmqvfn5a6.jpeg?q=70',
@@ -47,9 +48,14 @@ export class ProductsComponent implements OnInit {
       }
     }
   ];
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+  }
+
+  addToCart(data: any){
+    this.cartProducts.push(data);
+    this.commonService.addDataFromProducts(this.cartProducts);
   }
 
 }
