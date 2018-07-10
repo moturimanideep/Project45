@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+<div class="row" *ngIf='selectedproduct'>
+  
+    <div class="col-md-3">
+      <img [src]='selectedproduct.imageSrc'>
+    </div>
+    <div class="col-md-6">
+      <h2 [textContent]='selectedproduct.name'></h2>
+      <mat-list>
+        <mat-list-item role="listitem">{{selectedproduct.description.ram}}</mat-list-item>
+        <mat-list-item role="listitem">{{selectedproduct.description.display}}</mat-list-item>
+        <mat-list-item role="listitem">{{selectedproduct.description.camera}}</mat-list-item>
+        <mat-list-item role="listitem">{{selectedproduct.description.battery}}</mat-list-item>
+        <mat-list-item role="listitem">{{selectedproduct.description.processor}}</mat-list-item>
+        <mat-list-item role="listitem">{{selectedproduct.description.warranty}}</mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-md-3">
+      <h2>{{selectedproduct.price}}</h2>
+      <button mat-raised-button	(click)='addToCart(product)'>Add to Cart</button>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+</mat-card>
+</div>

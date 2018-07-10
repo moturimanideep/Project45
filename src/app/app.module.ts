@@ -12,24 +12,35 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
-import { AuthModule} from './auth/auth.module';
+// import { AuthModule} from './auth/auth.module';
+// import { AdminModule } from './admin/admin.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetail2Component } from './product-detail2/product-detail2.component';
+import { ProductDetail3Component } from './product-detail3/product-detail3.component';
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductsComponent, children: [
+    {path: 'product-detail/:_id', component: ProductDetailComponent},
+    {path: 'product-detail2', component: ProductDetail2Component},
+    {path: 'product-detail3', component: ProductDetail3Component}
+  ]},
   {path: 'profile', component: ProfileComponent},
   {path: 'employees', component: EmployeesComponent}, 
   {path: 'cart', component: CartComponent}, 
   {path: 'customers', component: CustomersComponent}, 
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
+  // {path: 'products/product-detail/:_id', component: ProductDetailComponent}, 
   {path: '**', redirectTo: ''}
 
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent, HeaderComponent, ProductsComponent, ProfileComponent, EmployeesComponent, CartComponent, CustomersComponent, CustomerDetailsComponent
+    HomepageComponent, HeaderComponent, ProductsComponent, ProfileComponent, EmployeesComponent, CartComponent, CustomersComponent, CustomerDetailsComponent, ProductDetailComponent, ProductDetail2Component, ProductDetail3Component
   ],
   imports: [
-    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes), AuthModule
+    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

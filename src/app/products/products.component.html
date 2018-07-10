@@ -6,7 +6,7 @@
         <img [src]='product.imageSrc'>
       </div>
       <div class="col-md-6">
-        <h2 [textContent]='product.name'></h2>
+        <h2 ><a [routerLink]="['/products/product-detail', product.Id]">{{product.name}}</a></h2>
         <mat-list>
           <mat-list-item role="listitem">{{product.description.ram}}</mat-list-item>
           <mat-list-item role="listitem">{{product.description.display}}</mat-list-item>
@@ -23,4 +23,19 @@
       <mat-divider></mat-divider>
   </div>
 </mat-card>
+</div>
+
+<div class="container" style="border: 2px solid black; padding: 30px;">
+  <div class="row">
+    <mat-list>
+      <mat-list-item role="listitem"><a [routerLink]="['/products/product-detail']"> Product Detail1</a></mat-list-item>
+      <mat-list-item role="listitem"><a [routerLink]="['/products/product-detail2']"> Product Detail2</a></mat-list-item>
+      <mat-list-item role="listitem"><a [routerLink]="['/products/product-detail3']">Product Detail3  </a></mat-list-item>
+    </mat-list>
+
+    <router-outlet>
+
+
+    </router-outlet>
+  </div>
 </div>
