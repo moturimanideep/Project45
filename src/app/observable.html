@@ -1,0 +1,38 @@
+<html>
+    <head>
+
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    
+    </head>
+    <body>
+        <button>Click me!</button>
+        <script>
+            var button = document.querySelector('button');
+
+            var observer = {
+                next: function(value){
+                    console.log(value);
+                },
+                error: function(error){
+                    console.log(error);
+                },
+                complete: function(){
+                    console.log('completed');
+                }
+            }
+        
+            // Rx.Observable.fromEvent(button, 'click')
+            // 
+
+            Rx.Observable.create(function(observer){
+                observer.next('a value');
+                observer.error('a error');
+                observer.complete();
+                observer.next('b value')
+            })
+            .subscribe(observer);
+            
+            
+        </script>
+    </body>
+</html>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule, Router } from '@angular/router';
+import {MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
@@ -10,7 +12,7 @@ const routes: Routes = [
 ]
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes), MatInputModule, MatCardModule, FormsModule, MatButtonModule, ReactiveFormsModule
   ],
   declarations: [LoginComponent, RegisterComponent]
 })

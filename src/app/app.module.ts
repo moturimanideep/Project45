@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +40,7 @@ const routes: Routes = [
     HomepageComponent, HeaderComponent, ProductsComponent, ProfileComponent, EmployeesComponent, CartComponent, CustomersComponent, CustomerDetailsComponent, ProductDetailComponent, ProductDetail2Component, ProductDetail3Component
   ],
   imports: [
-    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes)
+    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes), BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,39 @@
-<p>
-  login works!
-</p>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-4">
+        <mat-card>
+          <form [formGroup]="user" (ngSubmit)="Login(user.value)">
+            <h2>Login Form</h2>
+            <div>
+                <mat-form-field >
+                  <input matInput placeholder="email" formControlName="email" >
+                </mat-form-field>
+                <div style="color: red;">
+                  <p *ngIf="user.get('email').hasError('required')">enter email</p>
+                  <p *ngIf="user.get('email').hasError('pattern')">incorrect format</p>
+                </div>
+            </div>
+            <div>
+                <mat-form-field >
+                  <input matInput placeholder="password" formControlName="password">
+                </mat-form-field>
+                <div style="color: red;">
+                    <p *ngIf="user.get('password').hasError('required')">enter password</p>
+                    <p *ngIf="user.get('password').hasError('minlength')">min 3 characters </p>
+                    <p *ngIf="user.get('password').hasError('maxlength')">max 6 characters </p>
+                  </div>
+            </div>
+            
+            <button mat-raised-button [disabled]="user.invalid">Login</button>
+          </form>
+  
+  
+  
+        </mat-card>
+      </div>
+      <div class="col-md-5">
+  
+      </div>
+    </div>
+  </div>
