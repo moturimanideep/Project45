@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule, Router } from '@angular/router';
 import {MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
@@ -12,7 +13,7 @@ const routes: Routes = [
 ]
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forChild(routes), MatInputModule, MatCardModule, FormsModule, MatButtonModule, ReactiveFormsModule
+    CommonModule, RouterModule.forChild(routes), MatInputModule, MatCardModule, FormsModule, MatButtonModule, ReactiveFormsModule, HttpClientModule
   ],
   declarations: [LoginComponent, RegisterComponent]
 })

@@ -3,8 +3,9 @@
   <div class="row">
     <div class="col-md-offset-3 col-md-4">
       <mat-card>
-        <form #registerForm="ngForm" (ngSubmit)="Register(registerForm)">
+        <form #registerForm="ngForm" (ngSubmit)="Register(registerForm.value)">
           <h2>Registration Form</h2>
+          <p *ngIf="response">{{response.data}}</p>
           <div>
             <mat-form-field >
               <input matInput placeholder="*username" ngModel name="username" #username="ngModel" required minlength="3" maxlength="10">

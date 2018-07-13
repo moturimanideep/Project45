@@ -17,6 +17,12 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductDetail2Component } from './product-detail2/product-detail2.component';
 import { ProductDetail3Component } from './product-detail3/product-detail3.component';
+import { FilterPipe } from './filter.pipe';
+import { PostsComponent } from './posts/posts.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FilePipe } from './file.pipe';
+
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'products', component: ProductsComponent, children: [
@@ -28,6 +34,7 @@ const routes: Routes = [
   {path: 'employees', component: EmployeesComponent}, 
   {path: 'cart', component: CartComponent}, 
   {path: 'customers', component: CustomersComponent}, 
+  {path: 'posts', component: PostsComponent}, 
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
   // {path: 'products/product-detail/:_id', component: ProductDetailComponent}, 
@@ -36,11 +43,12 @@ const routes: Routes = [
 ]
 @NgModule({
   declarations: [
+    FilterPipe,
     AppComponent,
-    HomepageComponent, HeaderComponent, ProductsComponent, ProfileComponent, EmployeesComponent, CartComponent, CustomersComponent, CustomerDetailsComponent, ProductDetailComponent, ProductDetail2Component, ProductDetail3Component
+    HomepageComponent, HeaderComponent, ProductsComponent, ProfileComponent, EmployeesComponent, CartComponent, CustomersComponent, CustomerDetailsComponent, ProductDetailComponent, ProductDetail2Component, ProductDetail3Component, PostsComponent, FilePipe
   ],
   imports: [
-    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes), BrowserAnimationsModule
+    BrowserModule, MatCardModule, MatButtonModule, MatListModule, MatDividerModule, RouterModule.forRoot(routes), BrowserAnimationsModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
